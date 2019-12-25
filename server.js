@@ -1,30 +1,43 @@
-const https = require('https');
+const datamuse = require('datamuse')
 
-const BASE_URL = 'https://api.datamuse.com/words?sp=';
+
 function genAlphabetArray(charA, charZ) {
-    var latters = [], i = charA.charCodeAt(0), j = charZ.charCodeAt(0);
+    var letters = [], i = charA.charCodeAt(0), j = charZ.charCodeAt(0);
     for (; i <= j; ++i) {
-        latters.push(String.fromCharCode(i));
+        letters.push(String.fromCharCode(i));
     }
-    return latters;
+    return letters;
 };
-var latterArray = genAlphabetArray('a', 'z'); // ["a", ..., "z"]
+var letterArray = genAlphabetArray('a', 'z'); // ["a", ..., "z"]
 
-//console.log(latterArray);
 var newArray = [];
-const getLatters = async () => {
+const getLetters = async () => {
+    var k;
     try {
-        for (var i=0; i<latterArray.length; i++){
-            for (var j=i,k=latterArray[i]; j<2; j++){
-                    var fetchData =  https.get(`${BASE_URL}/k`);
-                    var words = JSON.parse(fetchData);
-                    newArray.push(words.word);
-            };
-        };
-        return newArray;
-    } catch (error){
-        console.error("error")
-    }
+        for (var i=0; i<26; i++){
+            // console.error("first")
+                k=letterArray[i];
+                // console.error(k)
+                datamuse.request(`words?sp=${k}??*&md=f&max=2`)
+                .then((json) => {
+                    console.log(json)
+                }) 
+                    // if (err) {
+                    //   throw err;
+                    // }
+                    //console.log(json);
+                    //console.error("data Fetch")
+                    // var words = JSON.parse(JSON.stringify(json));
+                    //console.error("json parse")
+                    // newArray = words.word;
+                    // console.log(words); 
+                    // console.log("xxx");                  
+        }
+        } catch (error){
+            console.error("error")
+        }
+    return newArray;
 }
-getLatters();
+
+getLetters();
 console.log(newArray);
