@@ -10,7 +10,7 @@ function genAlphabetArray(charA, charZ) {
 };
 var latterArray = genAlphabetArray('a', 'z'); // ["a", ..., "z"]
 
-//console.log(latterArray);
+console.log(latterArray);
 var newArray = [];
 const getLatters = async () => {
     try {
