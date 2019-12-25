@@ -2,46 +2,38 @@ const datamuse = require('datamuse')
 
 
 function genAlphabetArray(charA, charZ) {
-    var latters = [], i = charA.charCodeAt(0), j = charZ.charCodeAt(0);
+    var letters = [], i = charA.charCodeAt(0), j = charZ.charCodeAt(0);
     for (; i <= j; ++i) {
-        latters.push(String.fromCharCode(i));
+        letters.push(String.fromCharCode(i));
     }
-    return latters;
+    return letters;
 };
-var latterArray = genAlphabetArray('a', 'z'); // ["a", ..., "z"]
+var letterArray = genAlphabetArray('a', 'z'); // ["a", ..., "z"]
 
 var newArray = [];
-var k='';
-const getLatters = async () => {
+
+const getLetters = async () => {
+    var k;
     try {
-        for (var i=0; i<latterArray.length; i++){
-            //console.error("first")
-            for (var j=i, k=latterArray[i]; j<1; j++){
-                //console.error(k)
-                datamuse.request(`words?sp=${k}`)
+        for (var i=0; i<26; i++){
+            // console.error("first")
+                k=letterArray[i];
+                // console.error(k)
+                datamuse.request(`words?sp=${k}??*&md=f&max=2`)
                 .then((json) => {
                     console.log(json)
                 }) 
-                    if (err) {
-                      throw err;
-                    }
+                    // if (err) {
+                    //   throw err;
+                    // }
                     //console.log(json);
                     //console.error("data Fetch")
-                    var words = JSON.parse(JSON.stringify(json));
+                    // var words = JSON.parse(JSON.stringify(json));
                     //console.error("json parse")
-                    newArray = words.word;
-                    console.log(newArray);
-                }
-                    
-                   
-            }
-        } catch (error){
-            console.error("error")
+                    // newArray = words.word;
+                    // console.log(words); 
+                    // console.log("xxx");                  
         }
-    return newArray;
-}
 
-getLatters();
+getLetters();
 console.log(newArray);
-
-
