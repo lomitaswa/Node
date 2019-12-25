@@ -11,6 +11,7 @@ function genAlphabetArray(charA, charZ) {
 var letterArray = genAlphabetArray('a', 'z'); // ["a", ..., "z"]
 
 var newArray = [];
+
 const getLetters = async () => {
     var k;
     try {
@@ -33,11 +34,6 @@ const getLetters = async () => {
                     // console.log(words); 
                     // console.log("xxx");                  
         }
-        } catch (error){
-            console.error("error")
-        }
-    return newArray;
-}
 
 getLetters();
 console.log(newArray);
