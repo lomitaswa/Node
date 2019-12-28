@@ -29,7 +29,7 @@ const getLetters = async() => {
             // HTTP GET request is performed with Axios to fetch the data and display the data in console.
             axios.get(`https://api.datamuse.com/words?sp=${temp}??*&md=f:p&max=2`)
             .then((json) => {
-                console.log(json.data)
+                console.log(json.data.word)
 
             })
         }
