@@ -11,25 +11,26 @@ function genAlphabetArray(charA, charZ) {
     
 }
 let letterArray = genAlphabetArray('a', 'z');
-//console.log(letterArray)
+console.log(letterArray)
 
 let newArray = [];
 
 const getLetters = async() => {
-    let k; 
+    let k ; 
     try {
-        //for (let i=0 ; i<1; i++) {
-            axios.get(`https://api.datamuse.com/words?sp=a???*&max=2`)
+        for (let i=0 ; i<26; i++) {
+            k = letterArray[i]
+            axios.get(`https://api.datamuse.com/words?sp=${k}??*&md=f&max=2`)
             .then((json) => {
-                console.log(json)
+                console.log(json.data)
             })
-        //}
+        }
     } catch (error) {
         console.error("error")
     }
     //return newArray;
-    console.log(newArray)
+    //console.log(newArray)
 }
 
 getLetters();
-//console.log(newArray)
+console.log(newArray)
