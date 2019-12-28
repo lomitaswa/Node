@@ -25,9 +25,9 @@ const getLetters = async() => {
     try {
         for (let i=0 ; i<26; i++) {
             temp = letterArray[i] // This variable stores the letter which is sent with the API to fetch desired result.
-            
+            //console.log(i)
             // HTTP GET request is performed with Axios to fetch the data and display the data in console.
-            axios.get(`https://api.datamuse.com/words?sp=${temp}??*&md=f&max=2`)
+            axios.get(`https://api.datamuse.com/words?sp=${temp}??*&md=f&p&max=2`)
             .then((json) => {
                 console.log(json.data)
 
@@ -39,4 +39,4 @@ const getLetters = async() => {
 }
 
 getLetters();
-console.log(newArray)
+//console.log(newArray)
