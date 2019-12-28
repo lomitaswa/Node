@@ -1,5 +1,7 @@
-const axios = require('axios')
+//Connecting to the Axios server.
+const axios = require('axios') 
 
+// Function to generate alpahbets from A-Z and storing it in an array called letter, then returns the array.
 function genAlphabetArray(charA, charZ) {
     let letters = [];
     let  i = charA.charCodeAt(0);
@@ -10,26 +12,30 @@ function genAlphabetArray(charA, charZ) {
     return letters;
     
 }
-let letterArray = genAlphabetArray('a', 'z');
-console.log(letterArray)
 
+let letterArray = genAlphabetArray('a', 'z');
+//console.log(letterArray)
+
+// New array is created to store the 
 let newArray = [];
 
+// Promise  based asynchrnous function to fetch data from Datamuse with Datamuse API.
 const getLetters = async() => {
-    let k ; 
+    let temp ; 
     try {
         for (let i=0 ; i<26; i++) {
-            k = letterArray[i]
-            axios.get(`https://api.datamuse.com/words?sp=${k}??*&md=f&max=2`)
+            temp = letterArray[i] // This variable stores the letter which is sent with the API to fetch desired result.
+            
+            // HTTP GET request is performed with Axios to fetch the data and display the data in console.
+            axios.get(`https://api.datamuse.com/words?sp=${temp}??*&md=f&max=2`)
             .then((json) => {
                 console.log(json.data)
+
             })
         }
     } catch (error) {
         console.error("error")
     }
-    //return newArray;
-    //console.log(newArray)
 }
 
 getLetters();
