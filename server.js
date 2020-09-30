@@ -37,3 +37,4 @@ const getLetters = async () => {
 
 getLetters();
 console.log(newArray);
+        for git
