@@ -2,18 +2,21 @@ const datamuse = require('datamuse')
 
 
 function genAlphabetArray(charA, charZ) {
-    var letters = [], i = charA.charCodeAt(0), j = charZ.charCodeAt(0);
+    let letters = [];
+    let i = charA.charCodeAt(0);
+    let j = charZ.charCodeAt(0);
+    
     for (; i <= j; ++i) {
         letters.push(String.fromCharCode(i));
     }
     return letters;
 };
-var letterArray = genAlphabetArray('a', 'z'); // ["a", ..., "z"]
+let letterArray = genAlphabetArray('a', 'z'); // ["a", ..., "z"]
 
-var newArray = [];
+let newArray = [];
 
 const getLetters = async () => {
-    var k;
+    let k;
     try {
         for (var i=0; i<26; i++){
             // console.error("first")
