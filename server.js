@@ -1,17 +1,17 @@
 const datamuse = require('datamuse')
 
 
-function genAlphabetArray(charA, charZ) {
+function genAlphabetArray(charA, charB) {
     let letters = [];
     let i = charA.charCodeAt(0);
-    let j = charZ.charCodeAt(0);
+    let j = charB.charCodeAt(0);
     
     for (; i <= j; ++i) {
         letters.push(String.fromCharCode(i));
     }
     return letters;
 };
-let letterArray = genAlphabetArray('a', 'z'); // ["a", ..., "z"]
+let letterArray = genAlphabetArray('a', 'b'); // ["a", ..., "b"]
 
 let newArray = [];
 
