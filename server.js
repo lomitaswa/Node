@@ -35,7 +35,7 @@ const getLetters = async () => {
                     //console.error("json parse")
                     // newArray = words.word;
                     // console.log(words); 
-                    // console.log("xxx");                  
+                                    
         }
 
 getLetters();
